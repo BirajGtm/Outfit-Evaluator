@@ -16,7 +16,7 @@ API_HOST = "0.0.0.0"
 API_PORT = 8000
 
 # Model Paths
-MODEL_PATH = BASE_DIR / "Models" / "best.pt"
+MODEL_PATH = Path("/app/Models/best.pt")
 UPLOAD_DIR = "/data/uploads"
 
 # API Keys
