@@ -7,10 +7,7 @@ from pathlib import Path
 
 # Base directory
 BASE_DIR = Path(__file__).parent.parent
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-# Path to the Models folder outside app/
-MODELS_DIR = PROJECT_ROOT / "Models"
 # API Configuration
 API_TITLE = "AI Outfit Evaluator API"
 API_DESCRIPTION = "Analyze outfits and get AI-powered fashion suggestions"
@@ -19,7 +16,11 @@ API_HOST = "0.0.0.0"
 API_PORT = 8000
 
 # Model Paths
-MODEL_PATH = MODELS_DIR / "best.pt"
+# Directory where config.py lives
+CURRENT_DIR = Path(__file__).parent
+# Path to model in the same directory
+MODEL_PATH = CURRENT_DIR / "best.pt"
+
 UPLOAD_DIR = "/data/uploads"
 
 # API Keys
