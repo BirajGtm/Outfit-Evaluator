@@ -44,7 +44,7 @@ def main():
             dir_path.mkdir(exist_ok=True)
     
     # Check for model file in your actual location
-    model_path = project_root / "app" / "models" / "best.pt"
+    model_path = project_root / "app" / "best.pt"
     if model_path.exists():
         print(f"✅ Model file found at: {model_path}")
     else:
