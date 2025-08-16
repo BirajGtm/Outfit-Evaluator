@@ -26,8 +26,17 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the app
 COPY . .
 
+# Explicitly verify the model file is copied and show directory structure
+RUN echo "=== Checking if model file was copied ===" && \
+    ls -la app/ || echo "app/ directory not found" && \
+    ls -la app/best.pt || echo "best.pt not found in app/" && \
+    echo "=== Directory structure check complete ==="
+    
+# Set environment variables for Cloud Run
+ENV PORT=8000
+
 # Expose port
 EXPOSE 8000
 
 # Start the app
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "run.py"]

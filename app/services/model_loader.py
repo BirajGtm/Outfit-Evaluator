@@ -40,39 +40,10 @@ class ModelLoader:
             bool: True if successful, False otherwise
         """
         try:
-            # Debug information
-            print(f"🔍 Current working directory: {os.getcwd()}")
-            print(f"🔍 MODEL_PATH from config: {MODEL_PATH}")
-            print(f"🔍 MODEL_PATH exists: {os.path.exists(MODEL_PATH)}")
-
-            # Check alternative paths
-            alternative_paths = [
-                "app/models/best.pt",
-                "./app/models/best.pt",
-                "/app/app/models/best.pt",
-                "Models/best.pt"
-            ]
-
-            for alt_path in alternative_paths:
-                print(f"🔍 Checking {alt_path}: {os.path.exists(alt_path)}")
-
-            # List files in app/models if it exists
-            if os.path.exists("app/models"):
-                print(f"🔍 Files in app/models/: {os.listdir('app/models')}")
-
             print(f"Loading YOLO model from: {MODEL_PATH}")
-
+            
             if not os.path.exists(MODEL_PATH):
                 print(f"Error: Model file not found at {MODEL_PATH}")
-
-                # Try alternative path
-                alt_model_path = "app/models/best.pt"
-                if os.path.exists(alt_model_path):
-                    print(f"Found model at alternative path: {alt_model_path}")
-                    self.yolo_model = YOLO(alt_model_path)
-                    print("YOLO model loaded successfully from alternative path")
-                    return True
-
                 return False
 
             self.yolo_model = YOLO(str(MODEL_PATH))
