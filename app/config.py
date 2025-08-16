@@ -16,10 +16,7 @@ API_HOST = "0.0.0.0"
 API_PORT = 8000
 
 # Model Paths
-# Directory where config.py lives
-CURRENT_DIR = Path(__file__).parent
-# Path to model in the same directory
-MODEL_PATH = CURRENT_DIR / "best.pt"
+MODEL_PATH = BASE_DIR / "app" / "models" / "best.pt"
 
 UPLOAD_DIR = "/data/uploads"
 
