@@ -26,15 +26,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the app
 COPY . .
 
-# Remove any existing best.pt and download the correct one from GitHub
-RUN echo "=== Downloading fresh model file ===" && \
-    rm -f app/best.pt && \
-    wget -O app/best.pt https://github.com/BirajGtm/Outfit-Evaluator/raw/refs/heads/main/app/best.pt && \
-    echo "=== Model download complete ===" && \
-    ls -la app/best.pt && \
-    echo "=== Verifying model file size ===" && \
-    du -h app/best.pt
-    
 # Explicitly verify the model file is copied and show directory structure
 RUN echo "=== Checking if model file was copied ===" && \
     ls -la app/ || echo "app/ directory not found" && \
